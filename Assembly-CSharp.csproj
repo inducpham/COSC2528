@@ -46,7 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\KeyboardMovement.cs" />
+     <Compile Include="Assets\Scripts\MouseMovement.cs" />
+     <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\PickUpObject.cs" />
+     <Compile Include="Assets\Scripts\ScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\SpikeMeshGenerator.cs" />
+     <Compile Include="Assets\Scripts\SteerTarget.cs" />
+     <Compile Include="Assets\Scripts\SteerWander.cs" />
+     <Compile Include="Assets\Scripts\SteeringBehaviour.cs" />
+     <Compile Include="Assets\Scripts\SteeringController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
