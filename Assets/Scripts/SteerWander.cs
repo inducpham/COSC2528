@@ -27,11 +27,15 @@ public class SteerWander : SteeringBehaviour
 			return new Vector3(0f,0f,0f);
 		}
 		desire = 1f;
- 		return rigidbody.velocity += filter2(filter1(Random3(1f),Time.deltaTime),Time.deltaTime);
+ 		return rigidbody.velocity += filter2(filter1(Random3(2f)));
     }
 	void Awake(){
-		filter1 = Globals.CreateFilter3(1f,Random.Range(-1,1),Random.Range(-1,1),Random.Range(-1,1));
-		filter2 = Globals.CreateFilter3(1f,Random.Range(-1,1),Random.Range(-1,1),Random.Range(-1,1));
+		Globals.Float rand = ()=> Random.Range(-1f,1f);
+		float f = rand ();
+		f = rand ();
+		f = rand ();
+		filter1 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
+		filter2 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
 	}
 }
 /*

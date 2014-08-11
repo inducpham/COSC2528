@@ -31,17 +31,20 @@ public class SteeringFlocking : SteeringBehaviour {
 		Vector3 av = new Vector3 ();
 		foreach (var peer in allPeers) {
 			if (peer == this) continue;
-			float K = 10f;
+			float K = .00010f;
 			Vector3 s = peer.rigidbody.position - rigidbody.position;
 			//if (rigidbody.velocity.sqrMagnitude<.1f)
 			float f = 1 / s.sqrMagnitude;
 			//f-=0.05f;
 			if (f < 0f)
 					f = 0f;
-			float wi = (Vector3.Dot(rigidbody.velocity,s)+K)*f/(rigidbody.velocity.magnitude + K)
-				+ rigidbody.velocity.magnitude/(rigidbody.velocity.magnitude + K);
-			//float wi = (Vector3.Dot (rigidbody.velocity, s) / rigidbody.velocity.magnitude / s.magnitude + 1)
-			//		/ s.magnitude;
+			//float wi = (Vector3.Dot(rigidbody.velocity,s)+K)*f/(rigidbody.velocity.magnitude + K)
+			//	+ rigidbody.velocity.magnitude/(rigidbody.velocity.magnitude + K);
+			//float wi = (Vector3.Dot (rigidbody.velocity, s) / rigidbody.velocity.magnitude / s.magnitude +1)
+			//	/ s.sqrMagnitude / s.sqrMagnitude * 1600;
+			float vm = rigidbody.velocity.magnitude;
+			float wi = (Vector3.Dot (rigidbody.velocity, s) / (vm+K)/s.magnitude
+			            +1)/ s.sqrMagnitude/s.magnitude * 800;
 			wi = 10*wi;
 			ds += wi * s;
 			dv += wi * peer.rigidbody.velocity;
@@ -56,7 +59,7 @@ public class SteeringFlocking : SteeringBehaviour {
 	}
 	public override float Desire ()
 	{
-		return desire/10;
+		return desire/1;
 	}
 	public override Vector3 GetSteering ()
 	{

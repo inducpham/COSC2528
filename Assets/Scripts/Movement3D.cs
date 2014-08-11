@@ -20,7 +20,7 @@ public class Movement3D : Movement {
 	public Globals.VectorField Fence = Globals.CreatVectorFieldRadiant(r => -r/10);
 
 
-	private Globals.Filter3 filter = Globals.CreateFilter3(50f);
+	//private Globals.Filter3 filter = Globals.CreateFilter3(50f,()=>Time.deltaTime);
 	protected void Reset()
 	{
 		rigidbody.drag = .1f;

@@ -6,6 +6,8 @@ using System.Collections;
 /// Globals. Some global definitions.
 /// </summary>
 public class Globals : MonoBehaviour {
+	public delegate float Float();
+	public delegate int Int();
 	public delegate float Function(float x);
 	public delegate Vector3 VectorField(Vector3 Coordinate);
 	public delegate Vector3 ForceField(Vector3 Coordinate);
@@ -61,23 +63,19 @@ public class Globals : MonoBehaviour {
 	/// Put it in "Update" and 
 	/// DON'T APPLY MORE THAN ONCE IN A SINGLE UPDATE OR IN OTHER PLACES!!! CREATE A NEW ONE IF YOU NEED TWO.
 	/// </summary>
-	public delegate float Filter(float x,float deltaTime);
+	public delegate float Filter(float x);
 	/// <returns>The filter.</returns>
 	/// <param name="K">K.The larger the smoother, but the reaction is also slower.</param>
 	/// <param name="deltaTime">Delta time.</param>
 	/// <param name="iniOutput">Ini output.</param>
-	public static Filter CreateFilter(float K,float iniOutput=0){
-		float outPut = iniOutput;
-		return (x,deltaTime) => outPut += K*(x-outPut)*deltaTime;
+	public static Filter CreateFilter(float K,Float deltaTime,float output=0){
+		return x => output += K*(x-output)*deltaTime();
 	}
-	public delegate Vector3 Filter3(Vector3 v,float deltaTime);
-	public static Filter3 CreateFilter3(float K,float ix=0f,float iy=0f,float iz=0f){
-		Filter fx = CreateFilter(K,ix);
-		Filter fy = CreateFilter(K,iy);
-		Filter fz = CreateFilter(K,iz);
-		return (v, deltaTime) => new Vector3(
-			fx(v.x,deltaTime),
-			fy(v.y,deltaTime),
-			fz(v.z,deltaTime));
+	public delegate Vector3 Filter3(Vector3 v);
+	public static Filter3 CreateFilter3(float K,Float deltaTime,float ix=0f,float iy=0f,float iz=0f){
+		Filter fx = CreateFilter(K,deltaTime,ix);
+		Filter fy = CreateFilter(K,deltaTime,iy);
+		Filter fz = CreateFilter(K,deltaTime,iz);
+		return v => new Vector3(fx(v.x),fy(v.y),fz(v.z));
 	}
 }
