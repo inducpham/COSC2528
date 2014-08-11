@@ -46,12 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Helpers.cs" />
      <Compile Include="Assets\Scripts\KeyboardMovement.cs" />
      <Compile Include="Assets\Scripts\MouseMovement.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\PickUpObject.cs" />
+     <Compile Include="Assets\Scripts\PrefabHost.cs" />
      <Compile Include="Assets\Scripts\ScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\SpikeMeshGenerator.cs" />
+     <Compile Include="Assets\Scripts\SteerRandom.cs" />
      <Compile Include="Assets\Scripts\SteerTarget.cs" />
      <Compile Include="Assets\Scripts\SteerWander.cs" />
      <Compile Include="Assets\Scripts\SteeringBehaviour.cs" />

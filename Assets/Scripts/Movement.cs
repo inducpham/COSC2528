@@ -26,5 +26,8 @@ public class Movement : MonoBehaviour
             acceleration = acceleration.normalized*Accel;
 
         rigidbody.velocity += acceleration * Time.deltaTime;
+
+		//set the new orientation
+		transform.rotation.SetFromToRotation (transform.position, new Vector3 (1f, 1f, 1f));
     }
 }

@@ -3,6 +3,7 @@
 [RequireComponent(typeof(Movement))]
 public class SteeringController : MonoBehaviour
 {
+	public Transform Target;
     private SteeringBehaviour[] _steeringBehaviours;
     private Movement _movement;
 
