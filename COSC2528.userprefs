@@ -1,20 +1,30 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SteerWander.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SteeringFlocking.cs">
     <Files>
-      <File FileName="Assets\Scripts\Globals.cs" Line="67" Column="36" />
-      <File FileName="Assets\Scripts\SteeringFlocking.cs" Line="47" Column="22" />
+      <File FileName="Assets\Scripts\SteeringFlocking.cs" Line="45" Column="44" />
+      <File FileName="Assets\Scripts\Globals.cs" Line="38" Column="32" />
+      <File FileName="Assets\Scripts\SteeringFlocking.cs" Line="69" Column="1" />
       <File FileName="Assets\Scripts\SteeringController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SteeringBehaviour.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Movement3D.cs" Line="23" Column="31" />
+      <File FileName="Assets\Scripts\Movement3D.cs" Line="20" Column="37" />
       <File FileName="Assets\Scripts\SteerWander.cs" Line="38" Column="3" />
+      <File FileName="Assets\Scripts\Movement2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FuzzyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FuzzyController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MouseMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PickUpObject.cs" Line="15" Column="6" />
+      <File FileName="Assets\Scripts\ScoreDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpikeMeshGenerator.cs" Line="42" Column="23" />
+      <File FileName="Assets\Scripts\SteerTarget.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="D:\RMIT\COSC2528\Assets\Scripts\SteeringAvoid.cs" line="12" />
       <Breakpoint file="D:\RMIT\COSC2528\Assets\Scripts\SteeringAvoid.cs" line="11" />
+      <Breakpoint file="D:\RMIT\COSC2528\Assets\Scripts\SteerWander.cs" line="33" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

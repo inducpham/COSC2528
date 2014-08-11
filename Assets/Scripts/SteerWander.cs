@@ -31,9 +31,6 @@ public class SteerWander : SteeringBehaviour
     }
 	void Awake(){
 		Globals.Float rand = ()=> Random.Range(-1f,1f);
-		float f = rand ();
-		f = rand ();
-		f = rand ();
 		filter1 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
 		filter2 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
 	}
