@@ -6,12 +6,14 @@ using System.Collections;
 public class MouseMovement : MonoBehaviour
 {
     private Movement _movement;
+	private Plane _groundPlane;
 
     private Vector3 _targetPoint;
 
     protected void Awake ()
     {
         _movement = GetComponent<Movement>();
+		_groundPlane = new Plane (Vector3.up, Vector3.zero);
     }
 
     protected void Start()
@@ -24,13 +26,15 @@ public class MouseMovement : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            _targetPoint = ray.GetPoint(Camera.main.transform.position.y);
-            _targetPoint.y = 0;
+			float distance = 0f;
+
+			if (_groundPlane.Raycast(ray, out distance)) {
+            	_targetPoint = ray.GetPoint(distance);
+            	_targetPoint.y = 0;
+			}
         }
 
         Vector3 targetDirection = _targetPoint - transform.position;
-
-        //_movement.Move(targetDirection);
-
+        _movement.Move(targetDirection);
     }
 }
