@@ -21,8 +21,9 @@ public class Movement3D : Movement {
 
 
 	//private Globals.Filter3 filter = Globals.CreateFilter3(50f,()=>Time.deltaTime);
-	protected void Reset()
+	public override void Reset()
 	{
+		base.Reset ();
 		rigidbody.drag = .1f;
 		rigidbody.useGravity = false;
 	}

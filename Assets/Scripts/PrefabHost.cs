@@ -4,6 +4,7 @@ using System.Collections;
 public class PrefabHost : MonoBehaviour {
 
 	public GameObject prefab = null;
+	public float maxDistance = 5f;
 	public int initCount = 5;
 
 	// Use this for initialization
@@ -14,7 +15,7 @@ public class PrefabHost : MonoBehaviour {
 
 	void spawnPrefab() {
 		if (this.prefab != null) {
-			GameObject o = (GameObject) Instantiate(prefab, transform.position + Helpers.GetRandom2DVector(2f),
+			GameObject o = (GameObject) Instantiate(prefab, transform.position + Helpers.GetRandom2DVector(maxDistance),
 			                                        Quaternion.identity);
 
 			// if the prefab has a steer target settings, set it to be this object

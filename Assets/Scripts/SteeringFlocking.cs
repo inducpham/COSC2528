@@ -57,7 +57,7 @@ public class SteeringFlocking : SteeringBehaviour {
 			+ av;
 		desire = desire*1f/( n - 1) + .1f;
 	}
-	public override float Desire ()
+	public override float GetPriority ()
 	{
 		return desire/1;
 	}

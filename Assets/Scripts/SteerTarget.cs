@@ -26,5 +26,9 @@ public class SteerTarget : SteeringBehaviour
             return Vector3.zero;
         return Vector3.ClampMagnitude(_target.position
             - transform.position, MaxForce);
-    }
+	}
+	
+	public override float GetPriority() {
+		return 0f;
+	}
 }

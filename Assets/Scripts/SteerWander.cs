@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(FuzzyBehavior))]
 [RequireComponent(typeof(Globals))]
 public class SteerWander : SteeringBehaviour
 {
@@ -17,9 +16,11 @@ public class SteerWander : SteeringBehaviour
 	}
 //	private Vector3 _randomSteering;
 	public float desire = 1f;
-	public override float Desire (){
+
+	public override float GetPriority (){
 		return desire;
 	}
+
     public override Vector3 GetSteering()
     {
 		if (filter1 == null && filter2 == null) {
