@@ -59,7 +59,7 @@ public class SteeringFlocking : SteeringBehaviour {
 	}
 	public override float GetPriority ()
 	{
-		return desire/1;
+		return desire*1f;
 	}
 	public override Vector3 GetSteering ()
 	{

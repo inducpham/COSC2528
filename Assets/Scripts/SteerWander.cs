@@ -31,7 +31,7 @@ public class SteerWander : SteeringBehaviour
  		return rigidbody.velocity += filter2(filter1(Random3(2f)));
     }
 	void Awake(){
-		Globals.Float rand = ()=> Random.Range(-1f,1f);
+		Globals.Float rand = ()=> Random.Range(-.01f,.01f);
 		filter1 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
 		filter2 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
 	}

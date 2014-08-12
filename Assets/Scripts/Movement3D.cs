@@ -17,11 +17,12 @@ public class Movement3D : Movement {
 	/// To limit the movement in a perticular area.
 	/// Take position as parameter.
 	/// </summary>
-	public Globals.VectorField Fence = Globals.CreatVectorFieldRadiant(r => -r/10);
+	public Vector3 MovementCenter = Vector3.zero;
+	public Globals.VectorField Fence = Globals.CreatVectorFieldRadiant(r => -r*1f);
 
 
 	//private Globals.Filter3 filter = Globals.CreateFilter3(50f,()=>Time.deltaTime);
-	public override void Reset()
+	public virtual void Reset()
 	{
 		base.Reset ();
 		rigidbody.drag = .1f;
@@ -36,7 +37,7 @@ public class Movement3D : Movement {
 			acceleration = acceleration.normalized*MaximumAcc;
 		
 		if (Fence != null)
-			acceleration += Fence (transform.position);
+			acceleration += Fence (transform.position - MovementCenter);
 		rigidbody.velocity += acceleration * Time.deltaTime;
 		transform.eulerAngles = Globals.EulerAngles (rigidbody.velocity);
 	}

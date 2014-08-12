@@ -12,7 +12,7 @@ public class Movement2D : Movement3D {
 		Reset ();
 	}
 
-	public override void Reset(){
+	public virtual void Reset(){
 		base.Reset ();
 		transform.position = new Vector3(transform.position.x, 0 , transform.position.z);
 		SetTo2D ();
