@@ -3,8 +3,8 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Movement : MonoBehaviour
 {
-    public float Speed = 2f;
-    public float Accel = 10f;
+    //public float Speed = 2f;
+    //public float Accel = 10f;
 
     public virtual void Reset()
     {

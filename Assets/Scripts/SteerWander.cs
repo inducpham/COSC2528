@@ -14,26 +14,25 @@ public class SteerWander : SteeringBehaviour
 			Random.Range(-range,range),
 			Random.Range(-range,range));
 	}
-//	private Vector3 _randomSteering;
-	public float desire = 1f;
 
 	public override float GetPriority (){
-		return desire;
+		if (filter1 == null && filter2 == null) {
+			return 0;
+		}
+		return piority;
 	}
 
     public override Vector3 GetSteering()
     {
 		if (filter1 == null && filter2 == null) {
-			desire = 0f;
-			return new Vector3(0f,0f,0f);
+			return Vector3.zero;
 		}
-		desire = 1f;
- 		return rigidbody.velocity += filter2(filter1(Random3(2f)));
+ 		return rigidbody.velocity + filter2(filter1(Random3(10f)));
     }
 	void Awake(){
-		Globals.Float rand = ()=> Random.Range(-.01f,.01f);
-		filter1 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
-		filter2 = Globals.CreateFilter3(1f,()=>Time.deltaTime,rand(),rand(),rand());
+		Globals.Float rand = ()=> Random.Range(-1f,1f);
+		filter1 = Globals.CreateFilter3(2f,()=>Time.deltaTime,rand(),rand(),rand());
+		filter2 = Globals.CreateFilter3(2f,()=>Time.deltaTime,rand(),rand(),rand());
 	}
 }
 /*

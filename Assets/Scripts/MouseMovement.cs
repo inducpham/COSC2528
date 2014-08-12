@@ -30,7 +30,7 @@ public class MouseMovement : MonoBehaviour
 
         Vector3 targetDirection = _targetPoint - transform.position;
 
-        _movement.Move(targetDirection);
+        //_movement.Move(targetDirection);
 
     }
 }
