@@ -20,6 +20,8 @@ public class SteerTarget : SteeringBehaviour
 
     public override Vector3 GetSteering()
     {
+		if (_target == null)
+			return Vector3.zero;
         if (Vector3.Distance(_target.position, transform.position) < 3)
             return Vector3.zero;
         return Vector3.ClampMagnitude(_target.position
