@@ -11,7 +11,7 @@ public class SteeringFlocking : SteeringBehaviour {
 
 	private static List<SteeringFlocking> allPeers = new List<SteeringFlocking>();
 	Globals.VectorField avoidForce  = Globals.CreatVectorFieldRadiant(
-			r => 10f/(r*r*r + 0.1f));
+			r => 1f/(r*r*r + 0.1f));
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +44,7 @@ public class SteeringFlocking : SteeringBehaviour {
 			//	/ s.sqrMagnitude / s.sqrMagnitude * 1600;
 			float vm = rigidbody.velocity.magnitude;
 			float wi = (Vector3.Dot (rigidbody.velocity, s) / (vm+K)/s.magnitude
-			            +1)/ s.sqrMagnitude/s.magnitude * 800;
+			            +1)/ s.sqrMagnitude/s.magnitude * 2;
 			wi = 10*wi;
 			ds += wi * s;
 			dv += wi * peer.rigidbody.velocity;
@@ -57,9 +57,12 @@ public class SteeringFlocking : SteeringBehaviour {
 			+ av;
 		desire = desire*1f/( n - 1) + .1f;
 	}
+	public void Reset(){
+		piority=.7f;
+	}
 	public override float GetPriority ()
 	{
-		return desire/1;
+		return desire*piority;
 	}
 	public override Vector3 GetSteering ()
 	{
